@@ -9,12 +9,8 @@ class Student < InteractiveRecord
     end
 
     def self.find_by(hash)
-      key = ""
-      value = ""
-      hash.each do |k, v|
-        key = k
-        value = v
-      end
+      key = hash.keys[0]
+      value = hash.values[0]
 
       sql = "SELECT * FROM #{self.table_name} WHERE #{key} = '#{value}'"
 
